@@ -49,7 +49,7 @@ fi
 # =============================================
 # Verificar variables requeridas
 if [ -z "$CONNECT" ]; then
-  echo "ADVERTENCIA: CONNECT no está definido, usando valor predeterminado: 127.0.0.1:22"
+  echo "ADVERTENCIA: CONNECT no está definido, usando valor predeterminado: 127.0.0.1:5000"
   CONNECT="127.0.0.1:5000"
 fi
 
@@ -81,14 +81,14 @@ cat << EOF > /etc/stunnel.d/stunnel.conf
 cert = ${TLS_PATH}/cert.pem
 key = ${TLS_PATH}/key.pem
 cafile = ${TLS_PATH}/ca.pem
-verify = 2
+verify = 0
 socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
 syslog = no
 delay = yes
 foreground = yes
 [backend]
-client = ${CLIENT:-yes}
+client = ${CLIENT:-no}
 accept = ${ACCEPT:-0.0.0.0:4442}
 connect = ${CONNECT}
 EOF
