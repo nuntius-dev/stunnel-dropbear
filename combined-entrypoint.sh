@@ -50,7 +50,7 @@ fi
 # Verificar variables requeridas
 if [ -z "$CONNECT" ]; then
   echo "ADVERTENCIA: CONNECT no está definido, usando valor predeterminado: 127.0.0.1:22"
-  CONNECT="127.0.0.1:22"
+  CONNECT="127.0.0.1:5000"
 fi
 
 if [ -z "$TLS_PATH" ]; then
@@ -105,7 +105,7 @@ STUNNEL_PID=$!
 
 # Iniciar dropbear
 echo "Iniciando dropbear..."
-/usr/sbin/dropbear -F &
+/usr/sbin/dropbear -p 5000 -F &
 DROPBEAR_PID=$!
 
 # Función para manejar señales de terminación
