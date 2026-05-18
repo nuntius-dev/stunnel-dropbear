@@ -63,7 +63,7 @@ fi
 
 # Iniciar dropbear (escuchando en localhost:5000)
 echo "🚀 Iniciando Dropbear en 127.0.0.1:5000"
-dropbear -F -E -p 127.0.0.1:5000 -s -g -R &
+dropbear -F -E -p 127.0.0.1:5000 -R &
 
 # Iniciar stunnel
 echo "🔒 Iniciando Stunnel en ${ACCEPT}"
@@ -76,7 +76,7 @@ if [ "$KEEPALIVE" = "1" ]; then
         sleep 30
         if ! pgrep dropbear > /dev/null; then
             echo "❌ Dropbear caído, reiniciando..."
-            dropbear -F -E -p 127.0.0.1:5000 -s -g -R &
+            dropbear -F -E -p 127.0.0.1:5000 -R &
         fi
         if ! pgrep stunnel > /dev/null; then
             echo "❌ Stunnel caído, reiniciando..."
