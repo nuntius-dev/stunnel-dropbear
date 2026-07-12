@@ -43,8 +43,7 @@ if [ ! -f /etc/dropbear/dropbear_ecdsa_host_key ]; then
 fi
 
 # Configurar stunnel (usando variables ACCEPT, CONNECT, CLIENT)
-if [ ! -f /etc/stunnel/stunnel.conf ]; then
-    cat > /etc/stunnel/stunnel.conf << EOF
+cat > /etc/stunnel/stunnel.conf << EOF
 foreground = yes
 setuid = ${USER:-root}
 setgid = ${USER:-root}
@@ -59,7 +58,6 @@ client = ${CLIENT:-no}
 cert = ${TLS_PATH:-/etc/stunnel/certs}/cert.pem
 key = ${TLS_PATH:-/etc/stunnel/certs}/key.pem
 EOF
-fi
 
 # Iniciar dropbear (escuchando en localhost:5000)
 echo "🚀 Iniciando Dropbear en 127.0.0.1:5000"
