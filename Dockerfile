@@ -54,10 +54,10 @@ RUN mkdir -p /usr/lib/ssh/ \
 # Scripts: RECOMENDACIÓN -> Usa COPY en lugar de wget para estabilidad
 # Si prefieres mantener wget, asegúrate de que el link sea siempre válido.
 # Aquí uso tu método wget pero corregido para evitar capas extra innecesarias.
-RUN wget -O /usr/local/bin/motd.sh https://raw.githubusercontent.com/snowdreamtech/dropbear/refs/heads/main/alpine/motd.sh \
-    && chmod +x /usr/local/bin/motd.sh \
-    && mkdir -p /etc/periodic/15min \
-    && ln -s /usr/local/bin/motd.sh /etc/periodic/15min/motd.sh
+# RUN wget -O /usr/local/bin/motd.sh https://raw.githubusercontent.com/snowdreamtech/dropbear/refs/heads/main/alpine/motd.sh \
+#    && chmod +x /usr/local/bin/motd.sh \
+#    && mkdir -p /etc/periodic/15min \
+#    && ln -s /usr/local/bin/motd.sh /etc/periodic/15min/motd.sh
 
 # Descargar entrypoint (Mejor sería: COPY combined-entrypoint.sh /usr/local/bin/)
 RUN wget -O /usr/local/bin/combined-entrypoint.sh https://raw.githubusercontent.com/nuntius-dev/stunnel-dropbear/refs/heads/main/combined-entrypoint.sh \
