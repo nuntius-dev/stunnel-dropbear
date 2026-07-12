@@ -9,7 +9,7 @@ LABEL org.opencontainers.image.authors="Nuntius Dev" \
 # Definir variables de entorno
 ENV KEEPALIVE=1 \
     DROPBEAR_VERSION=2024.86-r0 \
-    SSH_ROOT_PASSWORD="QPrCYbyWR6x5TYQV9fFYd7zl6aNnHhf/n9xbJ1OU3Qr1" \
+    SSH_ROOT_PASSWORD="CHANGE_ME_SECURELY" \
     TLS_PATH="/etc/stunnel/certs" \
     ACCEPT="0.0.0.0:4442" \
     CLIENT="no" \
