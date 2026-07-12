@@ -1,5 +1,5 @@
 # Usamos una única etapa final ya que instalaremos paquetes directamente
-FROM snowdreamtech/alpine:3.21.0
+FROM alpine:3.21.0
 
 LABEL org.opencontainers.image.authors="Nuntius Dev" \
       org.opencontainers.image.title="Dropbear + Stunnel + SFTP" \
